@@ -1,0 +1,2217 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Api</name>
+    </assembly>
+    <members>
+        <member name="T:Api.Controllers.AccountController">
+            <summary>
+            使用者帳號API
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.AccountController.ToModel(Api.Entities.Account)">
+            <summary>
+            ToModel
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.AccountController.GetModel(System.String)">
+            <summary>
+            取得單一使用者Model
+            </summary>
+            <param name="No"></param>
+        </member>
+        <member name="M:Api.Controllers.AccountController.Post(Api.Models.AccNewModel)">
+            <summary>
+            新增使用者
+            </summary>
+            <param name="body"></param>
+        </member>
+        <member name="M:Api.Controllers.AccountController.Put(Api.Models.AccUpdateModel)">
+            <summary>
+            修改使用者
+            </summary>
+            <param name="body"></param>
+        </member>
+        <member name="M:Api.Controllers.AccountController.CreateValidation(Api.Models.AccNewModel)">
+            <summary>
+            檢核代碼重複
+            </summary>
+            <param name="model"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.AccountController.Unlock(System.String)">
+            <summary>
+            解鎖帳號
+            </summary>
+            <param name="no">帳號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.AccountController.ResetPassword(System.String)">
+            <summary>
+            重置密碼
+            </summary>
+            <param name="No"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.AccountController.#ctor(Database.Core.Interfaces.IAuditEventService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            稽核
+            </summary>
+            <param name="auditEventService"></param>
+            <param name="accessor"></param>
+        </member>
+        <member name="T:Api.Controllers.AuditEventController">
+            <summary>
+            系統稽核明細
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.AuditEventController.ToModel(Api.Entities.AuditEvent)">
+            <summary>
+            ToModel
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.AuditEventController.#ctor(Database.Core.Interfaces.IAuditEventService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            稽核建構式
+            </summary>
+            <param name="auditEventService"></param>
+            <param name="accessor"></param>
+        </member>
+        <member name="T:Api.Controllers.AuthController">
+            <summary>
+            認證API
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.AuthController.ToModel(Api.Entities.Account,System.String)">
+            <summary>
+            ToModel
+            </summary>
+            <param name="entity"></param>
+            <param name="orgcode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.AuthController.Login(Api.Models.UserLoginModel)">
+            <summary>
+            帳號登入
+            </summary>
+            <param name="body">登入帳號密碼</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.AuthController.Logout">
+            <summary>
+            帳號登出
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.AuthController.ChangePassword(Api.Models.ChangePermitModel)">
+            <summary>
+            變更密碼
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.AuthController.GetIdentifier(System.String)">
+            <summary>
+            取得帳號身份證字號
+            </summary>
+            <param name="user">帳號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.AuthController.CreateCharCode(System.Int32)">
+            <summary>
+            產生數字+字母驗證碼
+            </summary>
+            <param name="n">驗證碼數</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.AuthController.CreateCaptchaImage(System.String)">
+            <summary>
+            獲取驗證碼
+            </summary>
+            <param name="charCode">驗證圖字數</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.AuthController.GetCaptcha">
+            <summary>
+            取得驗證圖(有效時間 3分鐘)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.AuthController.#ctor(Database.Core.Interfaces.IAuditEventService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="auditEventService"></param>
+            <param name="accessor"></param>
+        </member>
+        <member name="T:Api.Controllers.CommonController">
+            <summary>
+            共用API
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.CommonController.CheckTWId(System.String)">
+            <summary>
+            身分證檢查
+            </summary>
+            <param name="identity">身分證號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.CommonController.CheckResidentID(System.String)">
+            <summary>
+            居留證檢查
+            </summary>
+            <param name="identity">居留證號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.CommonController.ChangeStudyId">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.CommonController.GetExcel">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Controllers.DicomPictureController">
+            <summary>
+            圖片檔
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.DicomPictureController.ToModel(Api.Entities.DicomPicture)">
+            <summary>
+            ToModel
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.DicomPictureController.DelMoreRec">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.DicomPictureController.#ctor(Database.Core.Interfaces.IAuditEventService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="auditEventService"></param>
+            <param name="accessor"></param>
+        </member>
+        <member name="T:Api.Controllers.ExamDataController">
+            <summary>
+            報告資料
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.ExamDataController.ToModel(Api.Entities.ExamData)">
+            <summary>
+            ToModel
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.ExamDataController.UpdateExamData">
+            <summary>
+            UpdateExamData
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.ExamDataController.#ctor(Database.Core.Interfaces.IAuditEventService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="auditEventService"></param>
+            <param name="accessor"></param>
+        </member>
+        <member name="T:Api.Controllers.PatientDetailController">
+            <summary>
+            病患檢查明細檔
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.PatientDetailController.ToModel(Api.Entities.PatientDetail)">
+            <summary>
+            ToModel
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.PatientDetailController.PostExamine(Api.Models.ExamineModel)">
+            <summary>
+            新增檢查單號
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.PatientDetailController.ToReadModel(Api.Entities.PatientDetail)">
+            <summary>
+            ToReadModel
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.PatientDetailController.ExamReport(Microsoft.AspNetCore.OData.Query.ODataQueryOptions{Api.Entities.PatientDetail})">
+            <summary>
+            取得報告資料
+            </summary>
+            <param name="opts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.PatientDetailController.ChangeImage">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.PatientDetailController.ReGetHistory">
+            <summary>
+            ReGetHistory
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.PatientDetailController.#ctor(Database.Core.Interfaces.IAuditEventService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="auditEventService"></param>
+            <param name="accessor"></param>
+        </member>
+        <member name="T:Api.Controllers.PatientMainController">
+            <summary>
+            病患主檔
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.PatientMainController.ToModel(Api.Entities.PatientMain)">
+            <summary>
+            ToModel
+            </summary>
+            <param name="entity"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.PatientMainController.Post(Api.Models.PatientMainNewModel)">
+            <summary>
+            新增病患基本資料
+            </summary>
+            <param name="body"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.PatientMainController.#ctor(Database.Core.Interfaces.IAuditEventService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="auditEventService"></param>
+            <param name="accessor"></param>
+        </member>
+        <member name="T:Api.Controllers.ReportCodeDescController">
+            <summary>
+            代碼檔
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.ReportCodeDescController.#ctor(Database.Core.Interfaces.IAuditEventService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="auditEventService"></param>
+            <param name="accessor"></param>
+        </member>
+        <member name="T:Api.Controllers.ReportSpecialWordController">
+            <summary>
+            特殊代碼檔
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.ReportSpecialWordController.#ctor(Database.Core.Interfaces.IAuditEventService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="auditEventService"></param>
+            <param name="accessor"></param>
+        </member>
+        <member name="T:Api.Controllers.SystemcodeController">
+            <summary>
+            公用資料
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.SystemcodeController.Gender">
+            <summary>
+            0性別
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.SystemcodeController.Specialty">
+            <summary>
+            建議科別
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.SystemcodeController.PoolReset">
+            <summary>
+            應用程式集區applicationPools
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Controllers.SystemcodeController.#ctor(Database.Core.Interfaces.IAuditEventService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            稽核
+            </summary>
+            <param name="auditEventService"></param>
+            <param name="accessor"></param>
+        </member>
+        <member name="T:Api.Controllers.UserProfileController">
+            <summary>
+            舊使用者檔
+            </summary>
+        </member>
+        <member name="M:Api.Controllers.UserProfileController.#ctor(Database.Core.Interfaces.IAuditEventService,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="auditEventService"></param>
+            <param name="accessor"></param>
+        </member>
+        <member name="T:Api.Entities.Account">
+            <summary>
+            使用者登入帳號
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.No">
+            <summary>
+            帳號(員工代碼)
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.Phone">
+            <summary>
+            聯絡電話
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.Email">
+            <summary>
+            電子郵件
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.HashPermit">
+            <summary>
+            使用者密碼
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.Expiration">
+            <summary>
+            帳號有效日期
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.Status">
+            <summary>
+            帳號狀態
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.CreateTime">
+            <summary>
+            建立時間
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.LastLoginTime">
+            <summary>
+            最後登入時間
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.UpdateTime">
+            <summary>
+            修改時間
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.IsSuper">
+            <summary>
+            是否為超級使用者
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.IsDeleted">
+            <summary>
+            註記刪除
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.PermitChangeTime">
+            <summary>
+            密碼變更時間
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.TryCount">
+            <summary>
+            密碼錯誤次數
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.Profile">
+            <summary>
+            帳號配置文件
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Account.Identifier">
+            <summary>
+            身分證號
+            </summary>
+        </member>
+        <member name="T:Api.Entities.AuditEvent">
+            <summary>
+            稽核事件
+            </summary>
+        </member>
+        <member name="P:Api.Entities.AuditEvent.Id">
+            <summary>
+            代碼ID
+            </summary>
+        </member>
+        <member name="P:Api.Entities.AuditEvent.CreateTime">
+            <summary>
+            建立時間
+            </summary>
+        </member>
+        <member name="P:Api.Entities.AuditEvent.DataType">
+            <summary>
+            資料類別
+            </summary>
+        </member>
+        <member name="P:Api.Entities.AuditEvent.DataKey">
+            <summary>
+            資料 pKey
+            </summary>
+        </member>
+        <member name="P:Api.Entities.AuditEvent.Data">
+            <summary>
+            資料內容
+            </summary>
+        </member>
+        <member name="P:Api.Entities.AuditEvent.AccountNo">
+            <summary>
+            使用者帳號
+            </summary>
+        </member>
+        <member name="P:Api.Entities.AuditEvent.HostAddress">
+            <summary>
+            用戶端IP
+            </summary>
+        </member>
+        <member name="P:Api.Entities.AuditEvent.ProcessStack">
+            <summary>
+            執行動作
+            </summary>
+        </member>
+        <member name="P:Api.Entities.AuditEvent.Type">
+            <summary>
+            記錄類型
+            </summary>
+        </member>
+        <member name="T:Api.Entities.DicomPicture">
+            <summary>
+            影像圖檔
+            </summary>
+        </member>
+        <member name="T:Api.Entities.ExamData">
+            <summary>
+            病歷報告資料
+            </summary>
+        </member>
+        <member name="P:Api.Entities.ExamData.AdditionalPatientHistory">
+            <summary>
+            主述
+            </summary>
+        </member>
+        <member name="T:Api.Entities.PatientDetail">
+            <summary>
+            病患檢查明細檔
+            </summary>
+        </member>
+        <member name="T:Api.Entities.PatientMain">
+            <summary>
+            病患
+            </summary>
+        </member>
+        <member name="T:Api.Entities.Pwdchangelog">
+            <summary>
+            密碼變更log
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Pwdchangelog.Id">
+            <summary>
+            序號
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Pwdchangelog.Account">
+            <summary>
+            帳號
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Pwdchangelog.Password">
+            <summary>
+            密碼
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Pwdchangelog.CreateTime">
+            <summary>
+            建立時間
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Pwdchangelog.CreatePractitionerId">
+            <summary>
+            建立人員ID
+            </summary>
+        </member>
+        <member name="T:Api.Entities.Systemcode">
+            <summary>
+            基本資料代碼表
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Systemcode.Category">
+            <summary>
+            類型
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Systemcode.Code">
+            <summary>
+            代碼
+            </summary>
+        </member>
+        <member name="P:Api.Entities.Systemcode.Display">
+            <summary>
+            顯示文字
+            </summary>
+        </member>
+        <member name="T:Api.Enums.AccountApproveStatus">
+            <summary>
+            帳戶狀態
+            </summary>
+        </member>
+        <member name="F:Api.Enums.AccountApproveStatus.Reject">
+            <summary>
+            拒絕
+            </summary>
+        </member>
+        <member name="F:Api.Enums.AccountApproveStatus.Approving">
+            <summary>
+            待審核
+            </summary>
+        </member>
+        <member name="F:Api.Enums.AccountStatus.Disabled">
+            <summary>
+            停用
+            </summary>
+        </member>
+        <member name="F:Api.Enums.AccountStatus.Pending">
+            <summary>
+            帳戶暫停登入
+            </summary>
+        </member>
+        <member name="F:Api.Enums.AccountStatus.Enabled">
+            <summary>
+            啟用
+            </summary>
+        </member>
+        <member name="F:Api.Enums.AuditType.Signature">
+            <summary>
+            帳號簽核
+            </summary>
+        </member>
+        <member name="F:Api.Enums.AuditType.Provenance">
+            <summary>
+            派遣
+            </summary>
+        </member>
+        <member name="F:Api.Enums.AuditType.CardSignature">
+            <summary>
+            卡片簽核
+            </summary>
+        </member>
+        <member name="F:Api.Enums.AuditType.ChangePwd">
+            <summary>
+            修改密碼
+            </summary>
+        </member>
+        <member name="F:Api.Enums.AuditType.ExceptionProcess">
+            <summary>
+            異常處理
+            </summary>
+        </member>
+        <member name="T:Api.Enums.RoleType">
+            <summary>
+            角色類型
+            </summary>
+        </member>
+        <member name="P:Api.Hubs.AccountInfoModel.No">
+            <summary>
+            使用者帳號代碼
+            </summary>
+        </member>
+        <member name="P:Api.Hubs.AccountInfoModel.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Api.Hubs.AccountInfoModel.InstitutionNo">
+            <summary>
+            機構代碼
+            </summary>
+        </member>
+        <member name="P:Api.Hubs.AccountInfoModel.InstitutionName">
+            <summary>
+            機構
+            </summary>
+        </member>
+        <member name="T:Api.Jobs.AccountStatusJob">
+            <summary>
+            檢查帳號是否三個月以上未使用
+            </summary>
+        </member>
+        <member name="M:Api.Jobs.AccountStatusJob.Execute(Quartz.IJobExecutionContext)">
+            <summary>
+            檢查是否變更狀態
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Api.Jobs.GetGeminiAIJob">
+            <summary>
+            取得Gemini AI OT Value
+            </summary>
+        </member>
+        <member name="M:Api.Jobs.GetGeminiAIJob.Execute(Quartz.IJobExecutionContext)">
+            <summary>
+            檢查OT檢查並用AI辨識數值
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Api.Jobs.GetHistoryJob">
+            <summary>
+            取得歷史資料
+            </summary>
+        </member>
+        <member name="M:Api.Jobs.GetHistoryJob.GetHistory(System.String)">
+            <summary>
+            取得病患資料及影像
+            </summary>
+            <param name="Id">身分證號</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Jobs.GetHistoryJob.Execute(Quartz.IJobExecutionContext)">
+            <summary>
+            檢查是否變更狀態
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Api.Library.CommonHelper">
+            <summary>
+            共用基本資料
+            </summary>
+        </member>
+        <member name="M:Api.Library.CommonHelper.TimeSpanFormat(System.TimeSpan)">
+            <summary>
+            TimeSpan時間轉換
+            </summary>
+            <param name="ts"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.CommonHelper.GetAgeRange(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="Age"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.CommonHelper.GetPurpose(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.CommonHelper.GetSystemDisplay(System.Int32,System.String)">
+            <summary>
+            取得類別名稱
+            </summary>
+            <param name="catagory"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.CommonHelper.CheckTWId(System.String)">
+            <summary>
+            身分證號檢核
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.CommonHelper.CheckResidentID(System.String)">
+            <summary>
+            檢核中華民國外僑及大陸人士在台居留證(舊式+新式)
+            </summary>
+            <param name="idNo">身分證</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.CommonHelper.CheckOldResidentID(System.String,System.String,System.String)">
+            <summary>
+            舊式檢核
+            </summary>
+            <param name="firstLetter">第1碼英文字母(區域碼)</param>
+            <param name="secondLetter">第2碼英文字母(性別碼)</param>
+            <param name="num">第3~9流水號 + 第10碼檢查碼</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.CommonHelper.CheckNewResidentID(System.String,System.String)">
+            <summary>
+            新式檢核
+            </summary>
+            <param name="firstLetter">第1碼英文字母(區域碼)</param>
+            <param name="num">第2碼(性別碼) + 第3~9流水號 + 第10碼檢查碼</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.CommonHelper.FormatChineseNumber(System.Int64)">
+            <summary>
+            數字轉正楷中文
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.CommonHelper.ConvertDayofWeekToInt(System.String)">
+            <summary>
+            星期轉數字
+            </summary>
+            <param name="DayOfWeek"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.CommonHelper.DeserializeStringToList(System.String)">
+            <summary>
+            字串轉List
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.CommonHelper.GetSystemcodeName(System.Int32,System.String)">
+            <summary>
+            取得類別名稱
+            </summary>
+            <param name="category"></param>
+            <param name="code"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.CommonHelper.GetAge(System.DateTime,System.DateTime)">
+            <summary>
+            取得年齡
+            </summary>
+            <param name="birthdate">生日</param>
+            <param name="senddate">送件日</param>
+            <returns>age</returns>
+        </member>
+        <member name="M:Api.Library.CommonHelper.ToSimpleTaiwanDate(System.DateTime)">
+            <summary>
+            To the simple taiwan date.
+            </summary>
+            <param name="datetime">The datetime.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.CommonHelper.CheckSuper(System.String)">
+            <summary>
+            CheckSuper
+            </summary>
+            <param name="AccountNo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Library.CryptoHelper">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Api.Library.CryptoHelper.ToHash256(System.String,System.String)">
+            <summary>
+            產生 Hash256 編碼
+            </summary>
+            <param name="source"></param>
+            <param name="privateKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.CryptoHelper.ToMd5(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Library.ExceptionHelper">
+            <summary>
+            處理 Exception 的輔助工具
+            </summary>
+        </member>
+        <member name="M:Api.Library.ExceptionHelper.GetExceptionDetail(System.Exception)">
+            <summary>
+            擷取 Exception 拋出的重要訊息
+            </summary>
+        </member>
+        <member name="M:Api.Library.GeminiAI.AnalyzeBoneDensityReport(System.String)">
+            <summary>
+            分析報告內容
+            </summary>
+            <param name="imagePath"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Library.SFTPHelper">
+            <summary>
+            DFtp Class
+            </summary>
+        </member>
+        <member name="P:Api.Library.SFTPHelper.Connected">
+            <summary>
+            連接狀態
+            </summary>
+        </member>
+        <member name="M:Api.Library.SFTPHelper.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="host">sftp的IP</param>
+            <param name="port">sftp的端口</param>
+            <param name="username">sftp的帳戶</param>
+            <param name="password">sftp的密碼</param>
+        </member>
+        <member name="M:Api.Library.SFTPHelper.Connect">
+            <summary>
+            連接sftp服務器
+            </summary>
+            <returns>連接狀態</returns>
+        </member>
+        <member name="M:Api.Library.SFTPHelper.Disconnect">
+            <summary>
+            斷開連接
+            </summary>
+        </member>
+        <member name="M:Api.Library.SFTPHelper.Put(System.String,System.String)">
+            <summary>
+            上傳文件
+            </summary>
+            <param name="localPath">本地文件路徑</param>
+            <param name="remotePath">服務器端文件路徑</param>
+        </member>
+        <member name="M:Api.Library.SFTPHelper.Put(System.Byte[],System.String)">
+            <summary>
+            上傳文字字節數據
+            </summary>
+            <param name="fileByteArr">文件內容字節</param>
+            <param name="remotePath">上傳到服務器的路徑</param>
+        </member>
+        <member name="M:Api.Library.SFTPHelper.Get(System.String,System.String)">
+            <summary>
+            將sftp服務器的文件下載本地
+            </summary>
+            <param name="remotePath">服務器上的路徑</param>
+            <param name="localPath">本地的路徑</param>
+        </member>
+        <member name="M:Api.Library.SFTPHelper.Delete(System.String)">
+            <summary>
+             刪除ftp服務器上的文件
+            </summary>
+            <param name="remoteFile">服務器上的路徑</param>
+        </member>
+        <member name="M:Api.Library.SFTPHelper.GetFileList(System.String,System.String)">
+            <summary>
+            獲取ftp服務器上指定路徑上的指定前綴的文件名列表
+            </summary>
+            <param name="remotePath">服務器上的路徑</param>
+            <param name="fileSuffix">文件名前綴</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.SFTPHelper.Move(System.String,System.String)">
+            <summary>
+            ftp服務器端文件移動
+            </summary>
+            <param name="oldRemotePath">原來服務器上路徑</param>
+            <param name="newRemotePath">移動後服務器上新路徑</param>
+        </member>
+        <member name="M:Api.Library.SFTPHelper.CreateDirectory(System.String)">
+            <summary>
+            循環創建目錄
+            </summary>
+            <param name="remotePath">遠程目錄</param>
+        </member>
+        <member name="M:Api.Library.SFTPHelper.GetDirectory(System.String)">
+            <summary>
+            讀取目錄
+            </summary>
+            <param name="remotePath">服務器上的路徑</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.SFTPHelper.DeleteDir(System.String)">
+            <summary>
+             刪除ftp服務器上的目錄
+            </summary>
+            <param name="path">服務器上的路徑</param>
+        </member>
+        <member name="M:Api.Library.SFTPHelper.DeleteDirectory(Renci.SshNet.SftpClient,System.String)">
+            <summary>
+             刪除ftp服務器上的目錄
+            </summary>
+            <param name="client">服務器</param>
+            <param name="path">服務器上的路徑</param>
+        </member>
+        <member name="T:Api.Library.SystemConfig">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Api.Library.SystemConfig.PacsServer">
+            <summary>
+            WebPacs伺服器URL
+            </summary>
+        </member>
+        <member name="P:Api.Library.SystemConfig.UploadFiles">
+            <summary>
+            Mio伺服器URL
+            </summary>
+        </member>
+        <member name="P:Api.Library.SystemConfig.Error3Times">
+            <summary>
+            密碼錯誤三次帳戶-暫停使用
+            </summary>
+        </member>
+        <member name="P:Api.Library.SystemConfig.Unused3Month">
+            <summary>
+            檢查帳戶三個月未使用-暫停使用
+            </summary>
+        </member>
+        <member name="P:Api.Library.SystemConfig.WebSite">
+            <summary>
+            WebSite
+            </summary>
+        </member>
+        <member name="P:Api.Library.SystemConfig.HistoryUrl">
+            <summary>
+            HistoryUrl
+            </summary>
+        </member>
+        <member name="P:Api.Library.SystemConfig.HistoryTimes">
+            <summary>
+            幾小時一次
+            </summary>
+        </member>
+        <member name="P:Api.Library.SystemConfig.AITimes">
+            <summary>
+            幾分鐘一次
+            </summary>
+        </member>
+        <member name="T:Api.Library.TokenFilter">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Api.Library.TokenFilter.OnActionExecuting(Microsoft.AspNetCore.Mvc.Filters.ActionExecutingContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="M:Api.Library.TokenFilter.OnActionExecuted(Microsoft.AspNetCore.Mvc.Filters.ActionExecutedContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:Api.Library.TokenManager">
+            <summary>
+            JWT Token管理
+            </summary>
+        </member>
+        <member name="F:Api.Library.TokenManager.Issuer">
+            <summary>
+            the token's issuer.
+            </summary>
+        </member>
+        <member name="P:Api.Library.TokenManager.UsingInstitutionNo">
+            <summary>
+            登入帳號使用中機構
+            </summary>
+        </member>
+        <member name="P:Api.Library.TokenManager.UserDate">
+            <summary>
+            登入帳號使用中機構
+            </summary>
+        </member>
+        <member name="F:Api.Library.TokenManager.Secret">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Api.Library.TokenManager.CreateToken(System.String,System.String)">
+            <summary>
+            CreateToken
+            </summary>
+            <param name="accountNo"></param>
+            <param name="orgCode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.TokenManager.GenerateToken(System.String,System.String)">
+            <summary>
+            GenerateToken
+            </summary>
+            <param name="user"></param>
+            <param name="org"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.TokenManager.GetPrincipal(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ticket"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.TokenManager.ValidateToken(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="ticket"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.TokenManager.RandomPermit(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.TokenManager.ToHash256(System.String,System.String)">
+            <summary>
+            產生 Hash256 編碼
+            </summary>
+            <param name="source"></param>
+            <param name="privateKey"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.TokenManager.ToHash(System.String)">
+            <summary>
+            hash password with sha2
+            </summary>
+            <param name="input"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.TokenManager.IsPasswordComplex(System.String)">
+            <summary>
+            檢查密碼複雜度要求(12碼以上，大小寫英文、數字、符號)
+            </summary>
+            <param name="password"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Library.TokenManager.Operationer(System.String)">
+            <summary>
+            取得PracId
+            </summary>
+            <param name="AccountNo"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Models.AccountModel">
+            <summary>
+            使用者帳號
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModel.No">
+            <summary>
+            使用者帳號
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModel.Name">
+            <summary>
+            帳號姓名
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModel.Status">
+            <summary>
+            狀態碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModel.Expiration">
+            <summary>
+            帳號到期日期
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModel.LastLoginTime">
+            <summary>
+            最後登入時間
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModel.CreateTime">
+            <summary>
+            建立時間
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModel.UpdateTime">
+            <summary>
+            更新時間
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModel.Bind">
+            <summary>
+            醫事卡綁定狀態
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModel.AccountSubInstitutions">
+            <summary>
+            所屬機構
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModel.StatusName">
+            <summary>
+            狀態名稱
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModel.Identifier">
+            <summary>
+            使用者身分證號
+            </summary>
+        </member>
+        <member name="T:Api.Models.AccReadModel">
+            <summary>
+            使用者Model
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccReadModel.No">
+            <summary>
+            使用者帳號
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccReadModel.Identifier">
+            <summary>
+            身分證號
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccReadModel.BirthDate">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccReadModel.Name">
+            <summary>
+            帳號姓名
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccReadModel.Phone">
+            <summary>
+            聯絡電話
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccReadModel.GenderCode">
+            <summary>
+            性別
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccReadModel.Email">
+            <summary>
+            電子郵件
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccReadModel.Weight">
+            <summary>
+            體重
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccReadModel.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccReadModel.Expiration">
+            <summary>
+            帳號有效日期
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccReadModel.Status">
+            <summary>
+            帳號狀態
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccReadModel.AccountSubInstitutions">
+            <summary>
+            醫師兼診醫院機構代碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccSubInstReadModel.OrgCode">
+            <summary>
+            機構代碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccSubInstReadModel.RoleNo">
+            <summary>
+            單位角色
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccSubInstReadModel.Specialty">
+            <summary>
+            科別
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccSubInstReadModel.IsActive">
+            <summary>
+            機構啟用狀態
+            </summary>
+        </member>
+        <member name="T:Api.Models.AccountModifyModel">
+            <summary>
+            修改使用者帳號
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModifyModel.No">
+            <summary>
+            帳號(員工代碼)
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModifyModel.Name">
+            <summary>
+            姓名
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModifyModel.Phone">
+            <summary>
+            聯絡電話
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModifyModel.Email">
+            <summary>
+            電子郵件
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModifyModel.HashPermit">
+            <summary>
+            使用者密碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModifyModel.Expiration">
+            <summary>
+            帳號有效日期
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModifyModel.Status">
+            <summary>
+            帳號狀態
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModifyModel.CreateTime">
+            <summary>
+            建立時間
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModifyModel.LastLoginTime">
+            <summary>
+            最後登入時間
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModifyModel.UpdateTime">
+            <summary>
+            修改時間
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModifyModel.IsSuper">
+            <summary>
+            是否為超級使用者
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModifyModel.IsDeleted">
+            <summary>
+            註記刪除
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModifyModel.PermitChangeTime">
+            <summary>
+            密碼變更時間
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModifyModel.TryCount">
+            <summary>
+            密碼錯誤次數
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountModifyModel.Profile">
+            <summary>
+            帳號配置文件
+            </summary>
+        </member>
+        <member name="T:Api.Models.AccUpdateModel">
+            <summary>
+            修改使用者帳號
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccUpdateModel.No">
+            <summary>
+            使用者帳號
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccUpdateModel.Identifier">
+            <summary>
+            身分證號
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccUpdateModel.BirthDate">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccUpdateModel.Name">
+            <summary>
+            帳號姓名
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccUpdateModel.Phone">
+            <summary>
+            聯絡電話
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccUpdateModel.GenderCode">
+            <summary>
+            性別
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccUpdateModel.Email">
+            <summary>
+            電子郵件
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccUpdateModel.Weight">
+            <summary>
+            體重
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccUpdateModel.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccUpdateModel.Expiration">
+            <summary>
+            帳號有效日期
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccUpdateModel.Status">
+            <summary>
+            帳號狀態
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccUpdateModel.AccountSubInstitutions">
+            <summary>
+            醫師兼診醫院機構代碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccSubInstUpdateModel.OrgCode">
+            <summary>
+            機構代碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccSubInstUpdateModel.RoleNo">
+            <summary>
+            單位角色
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccSubInstUpdateModel.Specialty">
+            <summary>
+            科別
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccSubInstUpdateModel.IsActive">
+            <summary>
+            機構啟用狀態
+            </summary>
+        </member>
+        <member name="T:Api.Models.AccNewModel">
+            <summary>
+            新增使用者帳號
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccNewModel.No">
+            <summary>
+            使用者帳號
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccNewModel.Identifier">
+            <summary>
+            身分證號
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccNewModel.BirthDate">
+            <summary>
+            生日
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccNewModel.Name">
+            <summary>
+            帳號姓名
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccNewModel.Phone">
+            <summary>
+            聯絡電話
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccNewModel.GenderCode">
+            <summary>
+            性別
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccNewModel.Email">
+            <summary>
+            電子郵件
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccNewModel.Weight">
+            <summary>
+            體重
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccNewModel.Address">
+            <summary>
+            地址
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccNewModel.Expiration">
+            <summary>
+            帳號有效日期
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccNewModel.Status">
+            <summary>
+            帳號狀態
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccNewModel.AccountSubInstitutions">
+            <summary>
+            醫師兼診醫院機構代碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccSubInstNewModel.OrgCode">
+            <summary>
+            機構代碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccSubInstNewModel.RoleNo">
+            <summary>
+            單位角色
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccSubInstNewModel.Specialty">
+            <summary>
+            科別
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccSubInstNewModel.IsActive">
+            <summary>
+            機構啟用狀態
+            </summary>
+        </member>
+        <member name="T:Api.Models.AccountRoleModel">
+            <summary>
+            帳號角色對應清單
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountRoleModel.AccountNo">
+            <summary>
+            對應 account.no
+            </summary>
+        </member>
+        <member name="P:Api.Models.AccountRoleModel.RoleNo">
+            <summary>
+            對應 role
+            </summary>
+        </member>
+        <member name="T:Api.Models.AuditEventModel">
+            <summary>
+            稽核事件
+            </summary>
+        </member>
+        <member name="P:Api.Models.AuditEventModel.Id">
+            <summary>
+            pKey
+            </summary>
+        </member>
+        <member name="P:Api.Models.AuditEventModel.CreateTime">
+            <summary>
+            建立時間
+            </summary>
+        </member>
+        <member name="P:Api.Models.AuditEventModel.DataType">
+            <summary>
+            資料類別
+            </summary>
+        </member>
+        <member name="P:Api.Models.AuditEventModel.DataKey">
+            <summary>
+            資料 pKey
+            </summary>
+        </member>
+        <member name="P:Api.Models.AuditEventModel.Data">
+            <summary>
+            資料內容
+            </summary>
+        </member>
+        <member name="P:Api.Models.AuditEventModel.AccountNo">
+            <summary>
+            使用者帳號
+            </summary>
+        </member>
+        <member name="P:Api.Models.AuditEventModel.HostAddress">
+            <summary>
+            用戶端IP
+            </summary>
+        </member>
+        <member name="P:Api.Models.AuditEventModel.ProcessStack">
+            <summary>
+            執行動作
+            </summary>
+        </member>
+        <member name="P:Api.Models.AuditEventModel.Type">
+            <summary>
+            記錄類型
+            </summary>
+        </member>
+        <member name="P:Api.Models.AuditEventModel.TypeName">
+            <summary>
+            記錄類型名稱
+            </summary>
+        </member>
+        <member name="P:Api.Models.AuditEventModel.OrgName">
+            <summary>
+            機構名稱
+            </summary>
+        </member>
+        <member name="P:Api.Models.AuditEventModel.AccountName">
+            <summary>
+            使用者姓名
+            </summary>
+        </member>
+        <member name="T:Api.Models.DateModel">
+            <summary>
+            Body DateModel
+            </summary>
+        </member>
+        <member name="P:Api.Models.DateModel.CreateTime">
+            <summary>
+            建立時間
+            </summary>
+        </member>
+        <member name="T:Api.Models.CaptchaModel">
+            <summary>
+            驗證圖
+            </summary>
+        </member>
+        <member name="P:Api.Models.CaptchaModel.Code">
+            <summary>
+            驗證代碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.CaptchaModel.Image">
+            <summary>
+            驗證圖
+            </summary>
+        </member>
+        <member name="P:Api.Models.CaptchaModel.HashCode">
+            <summary>
+            驗證Hash代碼
+            </summary>
+        </member>
+        <member name="T:Api.Models.ChangePermitModel">
+            <summary>
+            變更密碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.ChangePermitModel.Old">
+            <summary>
+            原密碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.ChangePermitModel.New">
+            <summary>
+            新密碼
+            </summary>
+        </member>
+        <member name="T:Api.Models.DicomPictureModel">
+            <summary>
+            影像圖檔
+            </summary>
+        </member>
+        <member name="T:Api.Models.ExamDataModel">
+            <summary>
+            報告
+            </summary>
+        </member>
+        <member name="T:Api.Models.ExamineModel">
+            <summary>
+            ExamineModel
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamineModel.StudyID">
+            <summary>
+            StudyID
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamineModel.PatientID">
+            <summary>
+            病歷號
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamineModel.InstanceNumber">
+            <summary>
+            InstanceNumber
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamineModel.AccessionNo">
+            <summary>
+            AccessionNumber
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamineModel.StudyDateTime">
+            <summary>
+            檢查日期時間
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamineModel.Modality">
+            <summary>
+            儀器類別
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamineModel.BodyPartExamined">
+            <summary>
+            檢查部位
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamineModel.Files">
+            <summary>
+            上傳檔案
+            </summary>
+        </member>
+        <member name="T:Api.Models.ExamDataReadModel">
+            <summary>
+            輸出報告
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamDataReadModel.Accession_num">
+            <summary>
+            工作單號
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamDataReadModel.Patient_ID">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamDataReadModel.Lines">
+            <summary>
+            第幾行, 如果只有一行就1
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamDataReadModel.Text_Type">
+            <summary>
+            1診斷,2建議
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamDataReadModel.Text_CH">
+            <summary>
+            中文報告
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamDataReadModel.Text_EN">
+            <summary>
+            英文報告
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamDataReadModel.Report_Updata_Tm">
+            <summary>
+            報告更新日期, yyyy-MM-DD
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamDataReadModel.ScheduledPerformingPhysician">
+            <summary>
+            報告認證醫師（姓名）
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamDataReadModel.verification_physician">
+            <summary>
+            報告認證醫師（帳號）
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamDataReadModel.Report_Finish_Tm">
+            <summary>
+            報告完成時間, yyyy-MM-DD 24hh:mm:ss
+            </summary>
+        </member>
+        <member name="P:Api.Models.ExamDataReadModel.RecommendReport">
+            <summary>
+            建議的報告
+            </summary>
+        </member>
+        <member name="T:Api.Models.FunctionModel">
+            <summary>
+            作業
+            </summary>
+        </member>
+        <member name="P:Api.Models.FunctionModel.No">
+            <summary>
+            作業代碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.FunctionModel.Name">
+            <summary>
+            作業名稱
+            </summary>
+        </member>
+        <member name="P:Api.Models.FunctionModel.Seq">
+            <summary>
+            顯示順序
+            </summary>
+        </member>
+        <member name="P:Api.Models.FunctionModel.IsActive">
+            <summary>
+            是否啟用
+            </summary>
+        </member>
+        <member name="P:Api.Models.FunctionModel.AllowApi">
+            <summary>
+            允許之API
+            </summary>
+        </member>
+        <member name="T:Api.Models.HistoryModel">
+            <summary>
+            HistoryModel
+            </summary>
+        </member>
+        <member name="T:Api.Models.HistoryListModel">
+            <summary>
+            HistoryListModel
+            </summary>
+        </member>
+        <member name="T:Api.Models.PatientDetailModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Api.Models.PatientMainModel">
+            <summary>
+            ????
+            </summary>
+        </member>
+        <member name="T:Api.Models.PatientMainNewModel">
+            <summary>
+            ????
+            </summary>
+        </member>
+        <member name="T:Api.Models.RoleModifyModel">
+            <summary>
+            修改角色
+            </summary>
+        </member>
+        <member name="P:Api.Models.RoleModifyModel.No">
+            <summary>
+            角色代碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.RoleModifyModel.Name">
+            <summary>
+            角色名稱
+            </summary>
+        </member>
+        <member name="P:Api.Models.RoleModifyModel.IsActive">
+            <summary>
+            是否啟用
+            </summary>
+        </member>
+        <member name="P:Api.Models.RoleModifyModel.Type">
+            <summary>
+            角色類型(0:授權角色, 1:職務角色)
+            </summary>
+        </member>
+        <member name="T:Api.Models.RoleModel">
+            <summary>
+            角色
+            </summary>
+        </member>
+        <member name="P:Api.Models.RoleModel.TypeName">
+            <summary>
+            角色類型(一般角色, 職務角色)
+            </summary>
+        </member>
+        <member name="T:Api.Models.RoleAccountModifyModel">
+            <summary>
+            編輯授權使用者
+            </summary>
+        </member>
+        <member name="P:Api.Models.RoleAccountModifyModel.RoleNo">
+            <summary>
+            角色代碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.RoleAccountModifyModel.AccountNo">
+            <summary>
+            使用者代碼
+            </summary>
+        </member>
+        <member name="T:Api.Models.RoleFunctionModifyModel">
+            <summary>
+            編輯授權作業
+            </summary>
+        </member>
+        <member name="P:Api.Models.RoleFunctionModifyModel.RoleNo">
+            <summary>
+            角色代碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.RoleFunctionModifyModel.FunctionNo">
+            <summary>
+            作業代碼
+            </summary>
+        </member>
+        <member name="T:Api.Models.SystemcodeModel">
+            <summary>
+            基本資料代碼表
+            </summary>
+        </member>
+        <member name="P:Api.Models.SystemcodeModel.Category">
+            <summary>
+            類型
+            </summary>
+        </member>
+        <member name="P:Api.Models.SystemcodeModel.Code">
+            <summary>
+            代碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.SystemcodeModel.Display">
+            <summary>
+            顯示文字
+            </summary>
+        </member>
+        <member name="T:Api.Models.UserLoginModel">
+            <summary>
+            登入帳號密碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.UserLoginModel.Name">
+            <summary>
+            帳號
+            </summary>
+        </member>
+        <member name="P:Api.Models.UserLoginModel.Permit">
+            <summary>
+            密碼
+            </summary>
+        </member>
+        <member name="P:Api.Models.UserLoginModel.CaptchaHashCode">
+            <summary>
+            驗證Hash代碼
+            </summary>
+        </member>
+        <member name="T:Api.Models.UserInfoModel">
+            <summary>
+            UserInfoModel
+            </summary>
+        </member>
+        <member name="P:Api.Models.UserInfoModel.Name">
+            <summary>
+            帳號
+            </summary>
+        </member>
+        <member name="P:Api.Models.UserInfoModel.OrgId">
+            <summary>
+            單位代碼
+            </summary>
+        </member>
+        <member name="T:Api.Models.UserLoginResult">
+            <summary>
+            登入回傳
+            </summary>
+        </member>
+        <member name="P:Api.Models.UserLoginResult.No">
+            <summary>
+            使用者帳號
+            </summary>        
+        </member>
+        <member name="P:Api.Models.UserLoginResult.Name">
+            <summary>
+            姓名
+            </summary>        
+        </member>
+        <member name="P:Api.Models.UserLoginResult.FunctionNos">
+            <summary>
+            作業代碼
+            </summary>
+            <value>The functions.</value>
+        </member>
+        <member name="P:Api.Models.UserLoginResult.RoleNos">
+            <summary>
+            角色代碼
+            </summary>
+            <value>The functions.</value>
+        </member>
+        <member name="P:Api.Models.UserLoginResult.Teken">
+            <summary>
+            權杖
+            </summary>
+            <value>The token.</value>
+        </member>
+        <member name="P:Api.Models.UserLoginResult.IsFirstLogin">
+            <summary>
+            是否首次登入
+            </summary>
+        </member>
+        <member name="P:Api.Models.UserLoginResult.IsSuper">
+            <summary>
+            超級使用者
+            </summary>
+        </member>
+        <member name="P:Api.Models.UserLoginResult.Identifier">
+            <summary>
+            身分證字號
+            </summary>
+        </member>
+        <member name="T:Api.Models.UserProfileModel">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Api.Repositories.AccountRepository">
+            <summary>
+            使用者
+            </summary>
+        </member>
+        <member name="M:Api.Repositories.AccountRepository.#ctor(Database.Core.Interfaces.IRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="repository">引用其他存儲管理物件連線</param>
+            <param name="accessor">稽核記錄取得登入帳號及用戶端IP用</param>
+        </member>
+        <member name="M:Api.Repositories.AccountRepository.BeforeModify(Api.Entities.Account,Database.Core.Enums.ModifyType)">
+            <summary>
+            更新物件實體前置作業
+            </summary>
+            <param name="account">物件實體</param>
+            <param name="entityState">更新類型</param>
+        </member>
+        <member name="T:Api.Repositories.AuditEventRepository">
+            <summary>
+            稽核記錄
+            </summary>
+        </member>
+        <member name="M:Api.Repositories.AuditEventRepository.#ctor(Database.Core.Interfaces.IRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="repository">引用其他存儲管理物件連線</param>
+            <param name="accessor">稽核記錄取得登入帳號及用戶端IP用</param>
+        </member>
+        <member name="M:Api.Repositories.AuditEventRepository.BeforeModify(Api.Entities.AuditEvent,Database.Core.Enums.ModifyType)">
+            <summary>
+            更新物件實體前置作業
+            </summary>
+            <param name="entity">物件實體</param>
+            <param name="entityState">更新類型</param>
+        </member>
+        <member name="M:Api.Repositories.AuditEventRepository.Add``1(System.Int16,``0,System.Object,System.String)">
+            <summary>
+            建立稽核記錄
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type">記錄類型</param>
+            <param name="model">記錄物件</param>
+            <param name="pKey">記錄搜尋主鍵</param>
+            <param name="processStack"></param>
+            <returns>ExamTracking.</returns>
+        </member>
+        <member name="M:Api.Repositories.AuditEventRepository.Database#Core#Interfaces#IAuditEventService#Add``1(Database.Core.Enums.AuditEventType,``0,System.Object,System.String)">
+            <summary>
+            建立稽核記錄
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type">記錄類型</param>
+            <param name="model">記錄物件</param>
+            <param name="pKey">記錄搜尋主鍵</param>
+            <param name="processStack"></param>
+            <returns>ExamTracking.</returns>
+        </member>
+        <member name="M:Api.Repositories.AuditEventRepository.AddSerializeObject(System.Int16,System.String,System.String,System.Object,System.String)">
+            <summary>
+            建立稽核記錄
+            </summary>
+            <param name="type">記錄類型</param>
+            <param name="modelString">資料物件值或JSON</param>
+            <param name="dataTypeName">資料物件型別</param>
+            <param name="pKey">記錄搜尋主鍵</param>
+            <param name="processStack">程序堆疊(API or Function Name)</param>
+            <returns>ExamTracking.</returns>
+        </member>
+        <member name="T:Api.Repositories.DicomPictureRepository">
+            <summary>
+            影像圖檔
+            </summary>
+        </member>
+        <member name="M:Api.Repositories.DicomPictureRepository.#ctor(Database.Core.Interfaces.IRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="repository">引用其他存儲管理物件連線</param>
+            <param name="accessor">稽核記錄取得登入帳號及用戶端IP用</param>
+        </member>
+        <member name="T:Api.Repositories.ExamDataRepository">
+            <summary>
+            報告檔
+            </summary>
+        </member>
+        <member name="M:Api.Repositories.ExamDataRepository.#ctor(Database.Core.Interfaces.IRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="repository">引用其他存儲管理物件連線</param>
+            <param name="accessor">稽核記錄取得登入帳號及用戶端IP用</param>
+        </member>
+        <member name="T:Api.Repositories.PatientDetailRepository">
+            <summary>
+            病患明細檔
+            </summary>
+        </member>
+        <member name="M:Api.Repositories.PatientDetailRepository.#ctor(Database.Core.Interfaces.IRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="repository">引用其他存儲管理物件連線</param>
+            <param name="accessor">稽核記錄取得登入帳號及用戶端IP用</param>
+        </member>
+        <member name="T:Api.Repositories.PatientMainRepository">
+            <summary>
+            病患主檔
+            </summary>
+        </member>
+        <member name="M:Api.Repositories.PatientMainRepository.#ctor(Database.Core.Interfaces.IRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="repository">引用其他存儲管理物件連線</param>
+            <param name="accessor">稽核記錄取得登入帳號及用戶端IP用</param>
+        </member>
+        <member name="T:Api.Repositories.PwdchangelogRepository">
+            <summary>
+            密碼修改紀錄
+            </summary>
+        </member>
+        <member name="M:Api.Repositories.PwdchangelogRepository.#ctor(Database.Core.Interfaces.IRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="repository">引用其他存儲管理物件連線</param>
+            <param name="accessor">稽核記錄取得登入帳號及用戶端IP用</param>
+        </member>
+        <member name="T:Api.Repositories.ReportCodeDescRepository">
+            <summary>
+            代碼檔
+            </summary>
+        </member>
+        <member name="M:Api.Repositories.ReportCodeDescRepository.#ctor(Database.Core.Interfaces.IRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="repository">引用其他存儲管理物件連線</param>
+            <param name="accessor">稽核記錄取得登入帳號及用戶端IP用</param>
+        </member>
+        <member name="T:Api.Repositories.ReportSpecialWordRepository">
+            <summary>
+            特殊代碼檔
+            </summary>
+        </member>
+        <member name="M:Api.Repositories.ReportSpecialWordRepository.#ctor(Database.Core.Interfaces.IRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="repository">引用其他存儲管理物件連線</param>
+            <param name="accessor">稽核記錄取得登入帳號及用戶端IP用</param>
+        </member>
+        <member name="T:Api.Repositories.SystemcodeRepository">
+            <summary>
+            基本資料代碼表
+            </summary>
+        </member>
+        <member name="M:Api.Repositories.SystemcodeRepository.GetTexts(System.Int32)">
+            <summary>
+            取得文字型常用資料集
+            </summary>
+            <param name="category">資料集類別</param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Repositories.SystemcodeRepository.#ctor(Database.Core.Interfaces.IRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="repository">引用其他存儲管理物件連線</param>
+            <param name="accessor">稽核記錄取得登入帳號及用戶端IP用</param>
+        </member>
+        <member name="T:Api.Repositories.UserProfileRepository">
+            <summary>
+            舊使用者檔
+            </summary>
+        </member>
+        <member name="M:Api.Repositories.UserProfileRepository.#ctor(Database.Core.Interfaces.IRepository,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+            <summary>
+            建構式
+            </summary>
+            <param name="repository">引用其他存儲管理物件連線</param>
+            <param name="accessor">稽核記錄取得登入帳號及用戶端IP用</param>
+        </member>
+        <member name="T:Api.Security.DataProtectionPurposeStrings">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Api.Security.DataProtectionPurposeStrings.RegionIdRouteValue">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Api.Security.IDataProtectionService">
+            <summary>
+            資料保護服務類
+            </summary>
+        </member>
+        <member name="M:Api.Security.IDataProtectionService.Protect(System.String,System.String)">
+            <summary>
+            加密
+            </summary>
+            <param name="purpose"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Security.IDataProtectionService.Unprotect(System.String,System.String)">
+            <summary>
+            解密
+            </summary>
+            <param name="purpose"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Api.Security.DataProtectionService">
+            <summary>
+            處理資料保護邏輯
+            </summary>
+        </member>
+        <member name="M:Api.Security.DataProtectionService.#ctor(Microsoft.AspNetCore.DataProtection.IDataProtectionProvider)">
+            <summary>
+            
+            </summary>
+            <param name="provider"></param>
+        </member>
+        <member name="M:Api.Security.DataProtectionService.Protect(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="purpose"></param>
+            <param name="data"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Api.Security.DataProtectionService.Unprotect(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="purpose"></param>
+            <param name="protectedData"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

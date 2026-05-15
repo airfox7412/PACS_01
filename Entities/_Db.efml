@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<efcore context-namespace="Api.Entities" namespace="Api.Entities" p1:name="Db" p1:Guid="76404edf-f927-4b68-9015-3c40d1ad87a3" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0">
+  <class name="ExamData" entity-set="ExamDatas" table="exam_data" schema="pacs" p1:Guid="b7758033-d6d1-4396-a72c-587c18bef9ec">
+    <Documentation>
+      <Summary>病歷報告資料</Summary>
+    </Documentation>
+    <id name="ExamDataNo" type="Int64" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="fe5753bf-8392-4354-811f-a82d63200d82">
+      <column name="ExamDataNo" not-null="True" precision="14" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="StudyID" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="15" p1:ValidateRequired="false" p1:Guid="4a4d675a-4734-40ab-9aed-537a84b49b32">
+      <column name="StudyID" default="NULL" not-null="False" length="15" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="ExamDateTime" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="2523daf6-4ce2-4bcb-a5d8-6f8cad44f4da">
+      <column name="ExamDateTime" default="NULL" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Memo1" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="719dcfa1-5e85-4e56-9749-50f64473482f">
+      <column name="memo1" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="AdditionalPatientHistory" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="fb50c019-0848-470f-9b05-142f0496bd40">
+      <Documentation>
+        <Summary>主述</Summary>
+      </Documentation>
+      <column name="AdditionalPatientHistory" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="English" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="6806eaf0-6fcd-4d03-9891-a91e0d27eeef">
+      <column name="english" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="Recommand" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="da2f8b1f-b5f7-48eb-be3c-3442a2905591">
+      <column name="recommand" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="ImgPara" entity-set="ImgParas" table="img_para" schema="pacs" p1:Guid="3e1fc73b-5137-4517-bca9-b8fcddeee4ab">
+    <id name="Pid" type="Byte" p1:ValidateRequired="true" p1:Guid="8fd10a73-d458-401d-943a-41fe995ba5aa">
+      <column name="pid" not-null="True" precision="3" scale="0" sql-type="tinyint" unique="True" p1:unicode="False" />
+    </id>
+    <property name="ImgPosition" type="Int64" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="245c09cd-76ca-4c88-ad3b-494b9c3631e5">
+      <column name="img_position" default="NULL" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="ImgWidth" type="Int64" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="f21f2e96-ca7e-43fe-9479-bfc6200751f0">
+      <column name="img_width" default="NULL" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="ImgHeight" type="Int64" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="9a732e1e-14d9-4a61-a534-b4c752b71556">
+      <column name="img_height" default="NULL" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="ImgRota" type="Int64" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="da747477-2e4a-416b-b12e-5007ec6a6898">
+      <column name="img_rota" default="0" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="ImgCount" type="Int64" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="fb316349-6606-4f49-a29c-b8363ea69514">
+      <column name="img_count" default="4" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="ImportLog" entity-set="ImportLogs" table="import_log" schema="pacs" p1:Guid="aabb2dc8-4a96-4ad3-b25e-336703ce03ea">
+    <id name="Iid" type="Int64" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="3e9bfe98-f9fd-4d70-96cd-ad26717cb9a8">
+      <column name="iid" not-null="True" precision="10" scale="0" sql-type="int" unique="True" p1:unicode="False" />
+    </id>
+    <property name="Sname" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="60" p1:ValidateRequired="false" p1:Guid="e0233ce9-4df1-4c82-a47d-9c1560ffc504">
+      <column name="sname" default="NULL" not-null="False" length="60" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Fname" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="60" p1:ValidateRequired="false" p1:Guid="b1daaded-5d94-4d21-b70a-240432dcc0f4">
+      <column name="fname" default="NULL" not-null="False" length="60" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Bname" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="80" p1:ValidateRequired="false" p1:Guid="bcc54564-5825-4a6e-823d-fa4e0a986154">
+      <column name="bname" default="NULL" not-null="False" length="80" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Idatetime" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="89364d3d-c382-4c7b-8d9e-032bafab7fab">
+      <column name="idatetime" default="NULL" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Odatetime" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="d705f3c0-4f22-4b1c-8891-32ef5a1aeeba">
+      <column name="odatetime" default="NULL" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Sdatetime" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="ba74d940-9fe1-4c5a-946a-3e1f96e227d1">
+      <column name="sdatetime" default="NULL" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Status" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="1" p1:ValidateRequired="false" p1:Guid="3ea0ab50-b94c-494f-a0b1-8096f8237763">
+      <column name="status" default="NULL" not-null="False" length="1" sql-type="varchar" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="PatientDetail" entity-set="PatientDetails" table="patient_detail" schema="pacs" p1:Guid="08b76024-7b32-4cf3-b5f7-28c72f780c63">
+    <Documentation>
+      <Summary>病患檢查明細檔</Summary>
+    </Documentation>
+    <id name="DetailNo" type="Int64" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="0c30ba2a-5999-43ec-a99b-fee92fb59480">
+      <column name="DetailNo" not-null="True" precision="14" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="StudyID" type="String" p1:ValidateMaxLength="15" p1:ValidateRequired="true" p1:Guid="1d5fa945-b5b2-40ac-93a8-772410d799ac">
+      <column name="StudyID" not-null="True" length="15" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="PatientID" type="String" p1:ValidateMaxLength="20" p1:ValidateRequired="true" p1:Guid="4f4e8971-4af6-44dc-89ed-95f356508803">
+      <column name="PatientID" not-null="True" length="20" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="SeriesNumber" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="862ab029-c58c-485a-ab6a-2d506d6be058">
+      <column name="SeriesNumber" default="0" not-null="False" precision="3" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="StudyDate" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="332c686d-e1a2-490f-b1aa-f573e4c5718f">
+      <column name="StudyDate" default="NULL" not-null="False" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="ContentDate" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="1efcc0c7-eb40-40ef-b78b-754e8029df92">
+      <column name="ContentDate" default="NULL" not-null="False" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="StudyTime" type="Time" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="c57a12cc-bd19-45e1-8ff2-983946eda3a7">
+      <column name="StudyTime" default="NULL" not-null="False" sql-type="time" p1:unicode="False" />
+    </property>
+    <property name="ContentTime" type="Time" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="c95219f9-d359-4cc6-9444-d8e46ca3e2b1">
+      <column name="ContentTime" default="NULL" not-null="False" sql-type="time" p1:unicode="False" />
+    </property>
+    <property name="Modality" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="10" p1:ValidateRequired="false" p1:Guid="ea44186e-d68e-4db9-a38d-9b9f7bd99585">
+      <column name="Modality" default="NULL" not-null="False" length="10" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="OperatorName" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="20" p1:ValidateRequired="false" p1:Guid="8f68e2a9-0de6-403a-bb5d-032eebbac0f2">
+      <column name="OperatorName" default="NULL" not-null="False" length="20" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Manufacturer" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="7731aacd-b115-4d91-aa6b-27e1c7ed8df8">
+      <column name="Manufacturer" default="NULL" not-null="False" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="BodyPartExamined" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="100" p1:ValidateRequired="false" p1:Guid="8d238087-e378-4137-aa3b-fafb5220632f">
+      <column name="BodyPartExamined" default="NULL" not-null="False" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="ProtocolName" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="b18f4b21-6b20-4d02-9f91-1d4fd0af1172">
+      <column name="ProtocolName" default="NULL" not-null="False" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="AccessionNumber" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="30" p1:ValidateRequired="false" p1:Guid="cc69e7cd-565a-4e27-a91a-37e3d70628b7">
+      <column name="AccessionNumber" default="NULL" not-null="False" length="30" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="InstanceNumber" type="SByte" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="8873b26e-4440-499b-8830-9e0013e26756">
+      <column name="InstanceNumber" default="NULL" not-null="False" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+    <property name="Image" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="43a579bb-ee48-49bc-81d8-ce661ac91960">
+      <column name="image" default="NULL" not-null="False" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Status" type="String" p1:ValidateMaxLength="1" p1:ValidateRequired="true" p1:Guid="fc21fd21-f3fc-4b61-8ba1-bf4ecedc600d">
+      <column name="Status" default="'N'" not-null="True" length="1" sql-type="char" p1:fixed-length="True" p1:unicode="True" />
+    </property>
+    <property name="AdditionalPatientHistory" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="100" p1:ValidateRequired="false" p1:Guid="46bb40c5-87aa-46f4-b299-fe30de4d3b41">
+      <column name="AdditionalPatientHistory" default="NULL" not-null="False" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="PatientMain" entity-set="PatientMains" table="patient_main" schema="pacs" p1:Guid="4b290194-0b87-4f66-ab4e-5af9fb4adcb1">
+    <Documentation>
+      <Summary>病患</Summary>
+    </Documentation>
+    <id name="PatientMainNo" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="267e782e-819f-4eb3-ad0e-5570320d5dcc">
+      <column name="PatientMainNo" not-null="True" precision="9" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="PatientID" type="String" p1:ValidateMaxLength="20" p1:ValidateRequired="true" p1:Guid="fd18226f-347b-4443-ae51-b58e40aa46b2">
+      <column name="PatientID" not-null="True" length="20" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="PatientName" type="String" p1:ValidateMaxLength="20" p1:ValidateRequired="true" p1:Guid="119dacdb-d1c6-4ef6-add8-41b7dd75486b">
+      <column name="PatientName" not-null="True" length="20" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="PatientBirthDate" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="0c075f4c-6918-4afb-a535-04d1443ccbce">
+      <column name="PatientBirthDate" default="NULL" not-null="False" sql-type="date" p1:unicode="False" />
+    </property>
+    <property name="PatientSex" type="String" p1:ValidateMaxLength="10" p1:ValidateRequired="true" p1:Guid="188a2bf6-d906-44b3-a4be-d146dc88b2c6">
+      <column name="PatientSex" not-null="True" length="10" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="OtherPatientID" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="10" p1:ValidateRequired="false" p1:Guid="ee14547c-e767-4b4e-97b5-89b41790f9fd">
+      <column name="OtherPatientID" default="NULL" not-null="False" length="10" sql-type="varchar" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="ReportCodeDesc" entity-set="ReportCodeDescs" table="report_code_desc" schema="pacs" p1:Guid="eb9eee34-e018-4dd6-a001-7e49ca6fa0f9">
+    <id name="ReportCodeDescNo" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="efa8ab82-933c-4a76-9b63-48c52f8f2620">
+      <column name="ReportCodeDescNo" not-null="True" precision="8" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="ReportCode" type="String" p1:ValidateMaxLength="64" p1:ValidateRequired="true" p1:Guid="a2e8deca-601d-41e1-bb6a-85d456fef190">
+      <column name="ReportCode" not-null="True" length="64" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="ReportDesc" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="55d68ecb-8e65-4a32-ac13-f66dbacc016a">
+      <column name="ReportDesc" default="NULL" not-null="False" sql-type="text" p1:unicode="True" />
+    </property>
+    <property name="UserID" type="String" p1:ValidateMaxLength="255" p1:ValidateRequired="true" p1:Guid="2344c5e9-ad0e-48d6-b61c-1fc22f48fe74">
+      <column name="UserID" not-null="True" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="ReportSpecialWord" entity-set="ReportSpecialWords" table="report_special_word" schema="pacs" p1:Guid="dadff80d-a203-4b35-a426-dc4f97bc2701">
+    <id name="ReportSpecialWordNo" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="69109f95-7cd5-4623-8bb9-c602f09e0837">
+      <column name="ReportSpecialWordNo" not-null="True" precision="8" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="ReportSpecialCode" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="10" p1:ValidateRequired="false" p1:Guid="624c52a6-3961-4856-a5ca-71e27045e9e7">
+      <column name="ReportSpecialCode" default="NULL" not-null="False" length="10" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="ReportSpecialGrade" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="7fa27f22-df4b-42fc-9a14-3af3b7d1eddc">
+      <column name="ReportSpecialGrade" default="NULL" not-null="False" precision="1" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="ReportSpecialWord1" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="fa4b96cc-d928-4b48-8653-643d51af8816">
+      <column name="ReportSpecialWord" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="UserID" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="942de13b-d5bb-4d4a-ae35-4b56345b6f6f">
+      <column name="UserID" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="Account" entity-set="Accounts" table="account" schema="pacs" p1:Guid="99229871-172a-4851-84be-966b63ebac72">
+    <Documentation>
+      <Summary>使用者登入帳號</Summary>
+    </Documentation>
+    <id name="No" type="String" p1:ValidateMaxLength="30" p1:ValidateRequired="true" p1:Guid="da278ada-61da-43d6-82d9-c4e3588f1bc2">
+      <Documentation>
+        <Summary>帳號(員工代碼)</Summary>
+      </Documentation>
+      <column name="`no`" not-null="True" length="30" sql-type="varchar" p1:unicode="True" />
+    </id>
+    <property name="Name" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="30" p1:ValidateRequired="false" p1:Guid="a6074769-fb2d-40c3-8e10-48a9712d0d21">
+      <Documentation>
+        <Summary>姓名</Summary>
+      </Documentation>
+      <column name="name" default="NULL" not-null="False" length="30" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Phone" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="30" p1:ValidateRequired="false" p1:Guid="118d9579-57eb-44b3-b631-5a640b91b7d2">
+      <Documentation>
+        <Summary>聯絡電話</Summary>
+      </Documentation>
+      <column name="phone" default="NULL" not-null="False" length="30" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Email" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="100" p1:ValidateRequired="false" p1:Guid="b5ffd019-971e-4a97-91ae-2d4cb431b3f9">
+      <Documentation>
+        <Summary>電子郵件</Summary>
+      </Documentation>
+      <column name="email" default="NULL" not-null="False" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="HashPermit" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="64" p1:ValidateRequired="false" p1:Guid="a6da9971-8d18-47db-9a49-c8d079cf1f73">
+      <Documentation>
+        <Summary>使用者密碼</Summary>
+      </Documentation>
+      <column name="hash_permit" default="NULL" not-null="False" length="64" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Expiration" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="50724352-73d4-4418-99f7-42382c875ddc">
+      <Documentation>
+        <Summary>帳號有效日期</Summary>
+      </Documentation>
+      <column name="expiration" default="NULL" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Status" type="Int32" p1:ValidateRequired="true" p1:Guid="a841fea5-f0e5-4565-9f5e-16b190708086">
+      <Documentation>
+        <Summary>帳號狀態</Summary>
+      </Documentation>
+      <column name="status" default="100" not-null="True" precision="5" scale="0" sql-type="smallint" p1:unicode="False" />
+    </property>
+    <property name="CreateTime" type="DateTime" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="039a8dbf-82d5-49f5-9206-c993b7fe3019">
+      <Documentation>
+        <Summary>建立時間</Summary>
+      </Documentation>
+      <column name="create_time" default="current_timestamp()" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="LastLoginTime" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="b57c5795-735d-4b89-aa54-fd64a92b6aa9">
+      <Documentation>
+        <Summary>最後登入時間</Summary>
+      </Documentation>
+      <column name="last_login_time" default="NULL" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UpdateTime" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="63c2c4d3-8973-4a56-8cd2-6c2083657e18">
+      <Documentation>
+        <Summary>修改時間</Summary>
+      </Documentation>
+      <column name="update_time" default="NULL" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="IsSuper" type="Boolean" p1:ValidateRequired="true" p1:Guid="3a38abb3-6ad0-4986-9d78-1b70f4ca30db">
+      <Documentation>
+        <Summary>是否為超級使用者</Summary>
+      </Documentation>
+      <column name="is_super" default="b'0'" not-null="True" precision="1" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="IsDeleted" type="Boolean" p1:ValidateRequired="true" p1:Guid="505b6440-4709-4097-b2c2-b290ce5d07a5">
+      <Documentation>
+        <Summary>註記刪除</Summary>
+      </Documentation>
+      <column name="is_deleted" default="b'0'" not-null="True" precision="1" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="PermitChangeTime" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="998f8f06-ac6f-49c3-878d-33d6b0f115b1">
+      <Documentation>
+        <Summary>密碼變更時間</Summary>
+      </Documentation>
+      <column name="permit_change_time" default="NULL" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="TryCount" type="Int32" p1:ValidateRequired="true" p1:Guid="1f4af35c-8cec-409f-9e7f-2952f0b2452b">
+      <Documentation>
+        <Summary>密碼錯誤次數</Summary>
+      </Documentation>
+      <column name="try_count" default="0" not-null="True" precision="5" scale="0" sql-type="smallint" p1:unicode="False" />
+    </property>
+    <property name="Profile" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="20" p1:ValidateRequired="false" p1:Guid="fbd05da9-52c7-4024-8993-5141b4cdd871">
+      <Documentation>
+        <Summary>帳號配置文件</Summary>
+      </Documentation>
+      <column name="profile" default="NULL" not-null="False" length="20" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Identifier" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="30" p1:ValidateRequired="false" p1:Guid="675bcca9-9154-4bff-a29f-be8dc3c66576">
+      <Documentation>
+        <Summary>身分證號</Summary>
+      </Documentation>
+      <column name="Identifier" default="NULL" not-null="False" length="30" sql-type="varchar" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="AuditEvent" entity-set="AuditEvents" table="audit_event" schema="pacs" p1:Guid="2869f8e5-8286-49f5-955a-a1cd6328210c">
+    <Documentation>
+      <Summary>稽核事件</Summary>
+    </Documentation>
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="b7ca949b-f799-47b7-b11f-3e471022afff">
+      <Documentation>
+        <Summary>代碼ID</Summary>
+      </Documentation>
+      <column name="Id" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="CreateTime" type="DateTime" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="81f36308-3386-4f58-9be8-59927e4cf9cc">
+      <Documentation>
+        <Summary>建立時間</Summary>
+      </Documentation>
+      <column name="CreateTime" default="current_timestamp()" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="DataType" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="100" p1:ValidateRequired="false" p1:Guid="ff3b8107-cc92-462e-8e5e-df4727fc7223">
+      <Documentation>
+        <Summary>資料類別</Summary>
+      </Documentation>
+      <column name="DataType" default="NULL" not-null="False" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="DataKey" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="74c841ee-169d-4bef-b07b-5141f0f47a5d">
+      <Documentation>
+        <Summary>資料 pKey</Summary>
+      </Documentation>
+      <column name="DataKey" default="NULL" not-null="False" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Data" type="Clob" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="955a4c1e-c0e9-4031-b051-1c8f5df93e63">
+      <Documentation>
+        <Summary>資料內容</Summary>
+      </Documentation>
+      <column name="`Data`" default="NULL" not-null="False" sql-type="longtext" p1:unicode="True" />
+    </property>
+    <property name="AccountNo" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="30" p1:ValidateRequired="false" p1:Guid="7119dff2-bd19-4d91-9b72-7675b60401f4">
+      <Documentation>
+        <Summary>使用者帳號</Summary>
+      </Documentation>
+      <column name="AccountNo" default="NULL" not-null="False" length="30" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="HostAddress" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="fec02de0-79f8-4a57-882b-daaa086a7a04">
+      <Documentation>
+        <Summary>用戶端IP</Summary>
+      </Documentation>
+      <column name="HostAddress" default="NULL" not-null="False" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="ProcessStack" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="500" p1:ValidateRequired="false" p1:Guid="1a14bf9a-694a-49a6-9a6b-b307958e2af1">
+      <Documentation>
+        <Summary>執行動作</Summary>
+      </Documentation>
+      <column name="ProcessStack" default="NULL" not-null="False" length="500" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Type" type="Int32" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="7b527463-a676-4ca8-b900-466a4c444f47">
+      <Documentation>
+        <Summary>記錄類型</Summary>
+      </Documentation>
+      <column name="Type" default="NULL" not-null="False" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="Systemcode" entity-set="Systemcodes" table="systemcode" schema="pacs" p1:Guid="552a780e-718d-4f6b-a0f8-473ef6e21f82">
+    <Documentation>
+      <Summary>基本資料代碼表</Summary>
+    </Documentation>
+    <composite-id>
+      <key-property name="Category" type="Int32" p1:ValidateRequired="true" p1:Guid="9d88e188-977a-4785-bfc0-a2d25d361376">
+        <Documentation>
+          <Summary>類型</Summary>
+        </Documentation>
+        <column name="Category" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+      </key-property>
+      <key-property name="Code" type="String" primary-key-index="1" p1:ValidateMaxLength="20" p1:ValidateRequired="true" p1:Guid="0dc9e44d-d48d-4292-b241-afb0b913cebb">
+        <Documentation>
+          <Summary>代碼</Summary>
+        </Documentation>
+        <column name="Code" not-null="True" length="20" sql-type="varchar" p1:unicode="True" />
+      </key-property>
+    </composite-id>
+    <property name="Display" type="String" p1:ValidateMaxLength="100" p1:ValidateRequired="true" p1:Guid="eeb31cac-329f-4564-9144-f87b1a5932f2">
+      <Documentation>
+        <Summary>顯示文字</Summary>
+      </Documentation>
+      <column name="Display" not-null="True" length="100" sql-type="varchar" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="Pwdchangelog" entity-set="Pwdchangelogs" table="pwdchangelog" schema="pacs" p1:Guid="f2e36a1f-3aa1-4cb3-a2b7-0d0f41b05b9e">
+    <Documentation>
+      <Summary>密碼變更log</Summary>
+    </Documentation>
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="692a7416-188e-4ea5-9fbc-8586430aa61d">
+      <Documentation>
+        <Summary>序號</Summary>
+      </Documentation>
+      <column name="Id" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Account" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="69bdb3a9-0280-47d9-a482-6cc8c77b7dcd">
+      <Documentation>
+        <Summary>帳號</Summary>
+      </Documentation>
+      <column name="Account" not-null="True" length="50" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Password" type="String" p1:ValidateMaxLength="64" p1:ValidateRequired="true" p1:Guid="88216136-b345-47c0-aaba-4e404c71e8b9">
+      <Documentation>
+        <Summary>密碼</Summary>
+      </Documentation>
+      <column name="`Password`" not-null="True" length="64" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="CreateTime" type="DateTime" p1:nullable="True" value-generated="OnAdd" p1:ValidateRequired="false" p1:Guid="bf46b937-f700-47f6-a4e5-760dc7187d5a">
+      <Documentation>
+        <Summary>建立時間</Summary>
+      </Documentation>
+      <column name="CreateTime" default="current_timestamp()" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="CreatePractitionerId" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="64" p1:ValidateRequired="false" p1:Guid="ae57c3ad-21ed-4ba8-80e1-800522a7e30b">
+      <Documentation>
+        <Summary>建立人員ID</Summary>
+      </Documentation>
+      <column name="CreatePractitionerId" default="NULL" not-null="False" length="64" sql-type="varchar" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="UserProfile" entity-set="UserProfiles" table="user_profile" schema="pacs" p1:Guid="6e43ccbd-e0e2-440f-a0b9-96ad39461647">
+    <id name="UserProfileNo" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="8a2c3fd8-e78e-4601-b856-a158927faf9c">
+      <column name="`UserProfileNo`" not-null="True" precision="8" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="UserID" type="String" p1:ValidateMaxLength="10" p1:ValidateRequired="true" p1:Guid="8e011899-59d5-46e9-a5c5-6753798ac2d7">
+      <column name="`UserID`" default="''" not-null="True" length="10" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="PassWord" type="String" p1:ValidateMaxLength="32" p1:ValidateRequired="true" p1:Guid="6aeecb3a-097f-4a25-b0e3-982c9c49a54e">
+      <column name="`PassWord`" default="''" not-null="True" length="32" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="UserName" type="String" p1:ValidateMaxLength="30" p1:ValidateRequired="true" p1:Guid="76194ff0-f5bc-4a58-bd19-7b5c25d1decf">
+      <column name="`UserName`" default="''" not-null="True" length="30" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Level" type="Int32" p1:ValidateRequired="true" p1:Guid="d1bbb763-fa25-42b2-8193-98486520caaa">
+      <column name="`Level`" default="0" not-null="True" precision="1" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="DepartNo" type="Int32" p1:ValidateRequired="true" p1:Guid="548e775a-bc82-41b6-8d72-8b3795bb93c6">
+      <column name="`DepartNo`" default="0" not-null="True" precision="4" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Status" type="String" p1:ValidateMaxLength="1" p1:ValidateRequired="true" p1:Guid="3676b1d8-524e-422c-bd0d-cf479278c264">
+      <column name="`Status`" default="'N'" not-null="True" length="1" sql-type="char" p1:fixed-length="True" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="DicomPicture" entity-set="DicomPictures" table="dicom_picture" schema="pacs" p1:Guid="fb4740b4-83dc-4732-9b2d-bbc568ebf744">
+    <Documentation>
+      <Summary>影像圖檔</Summary>
+    </Documentation>
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="0c4d08c4-73b5-4379-bd93-561b444238bc">
+      <column name="Id" not-null="True" precision="11" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="StudyID" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="15" p1:ValidateRequired="false" p1:Guid="892d12ea-85d9-47f7-873a-eb894aede894">
+      <column name="StudyID" default="NULL" not-null="False" length="15" sql-type="varchar" p1:unicode="True" />
+    </property>
+    <property name="Image" type="String" p1:nullable="True" value-generated="OnAdd" p1:ValidateMaxLength="255" p1:ValidateRequired="false" p1:Guid="37b62f5c-2f08-4548-9576-a7c0a83d8311">
+      <column name="image" default="NULL" not-null="False" length="255" sql-type="varchar" p1:unicode="True" />
+    </property>
+  </class>
+</efcore>
