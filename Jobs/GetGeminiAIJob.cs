@@ -4,10 +4,8 @@ using NLog;
 using Quartz;
 using System;
 using System.Linq;
-using System.Security.Permissions;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Syncfusion.DocIO.DLS;
 
 namespace Api.Jobs;
 

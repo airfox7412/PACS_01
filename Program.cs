@@ -97,7 +97,7 @@ internal class Program
             {
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
-                    Title = "ReportAPI系統平臺",
+                    Title = "立達ReportAPI系統平臺",
                     Version = "v1.0",
                     TermsOfService = null,
                     Contact = new OpenApiContact

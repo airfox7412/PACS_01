@@ -848,6 +848,11 @@
             擷取 Exception 拋出的重要訊息
             </summary>
         </member>
+        <member name="T:Api.Library.GeminiAI">
+            <summary>
+            GeminiAI Call
+            </summary>
+        </member>
         <member name="M:Api.Library.GeminiAI.AnalyzeBoneDensityReport(System.String)">
             <summary>
             分析報告內容
@@ -958,16 +963,6 @@
             
             </summary>
         </member>
-        <member name="P:Api.Library.SystemConfig.PacsServer">
-            <summary>
-            WebPacs伺服器URL
-            </summary>
-        </member>
-        <member name="P:Api.Library.SystemConfig.UploadFiles">
-            <summary>
-            Mio伺服器URL
-            </summary>
-        </member>
         <member name="P:Api.Library.SystemConfig.Error3Times">
             <summary>
             密碼錯誤三次帳戶-暫停使用
@@ -996,6 +991,26 @@
         <member name="P:Api.Library.SystemConfig.AITimes">
             <summary>
             幾分鐘一次
+            </summary>
+        </member>
+        <member name="P:Api.Library.SystemConfig.GeminiApiKey">
+            <summary>
+            Gemini API Key
+            </summary>
+        </member>
+        <member name="P:Api.Library.SystemConfig.GeminiEndpointUrl">
+            <summary>
+            Gemini API 終端節點 URL
+            </summary>
+        </member>
+        <member name="P:Api.Library.SystemConfig.UploadFiles">
+            <summary>
+            將上傳影像的位置
+            </summary>
+        </member>
+        <member name="P:Api.Library.SystemConfig.OT_Recommand">
+            <summary>
+            OT建議參考
             </summary>
         </member>
         <member name="T:Api.Library.TokenFilter">
