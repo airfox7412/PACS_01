@@ -220,7 +220,7 @@ internal class Program
                 .WithCronSchedule($"0 0 0/{SystemConfig.HistoryTimes} * * ?")
             );
         });
-        //每?分鐘執行一次
+        //每?小時執行一次
         services.AddQuartz(q =>
         {
             q.UseSimpleTypeLoader();
@@ -230,7 +230,7 @@ internal class Program
             q.AddTrigger(opts => opts
                     .ForJob(jobKey1)
                     .WithIdentity("GetGeminiAIJob-trigger")
-                    .WithCronSchedule($"0 0/{SystemConfig.AITimes} * * * ?")
+                    .WithCronSchedule($"0 0 0/{SystemConfig.AITimes} * * ?")
             );
         });
         // Add the Quartz.NET hosted service
@@ -335,11 +335,11 @@ internal class Program
         app.UseSwagger();
         app.UseSwaggerUI(c =>
         {
-            c.SwaggerEndpoint("v1/swagger.json", "ReportAPI平臺 API V2");
+            c.SwaggerEndpoint("v1/swagger.json", "立達ReportAPI平臺 API V2");
         });
         app.UseReDoc(options =>
         {
-            options.DocumentTitle = "ReportAPI平臺 API V2";
+            options.DocumentTitle = "立達ReportAPI平臺 API V2";
             options.SpecUrl = "/swagger/v1/swagger.json";
         });
 

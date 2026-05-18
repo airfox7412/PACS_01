@@ -94,7 +94,7 @@
 
   <ItemGroup>
     <None Update="Api.xml">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ClientUpdate\AirReferral-2.0.1.2.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

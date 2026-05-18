@@ -36,7 +36,11 @@ public class GetGeminiAIJob : IJob
         #region AI處理
         logger.Info("開始用AI處理Modality=OT");
         var UploadFilePath = SystemConfig.UploadFiles;
-        var pds = pdRep.DataSet.Where(c => c.Modality == "OT" && c.Status == "N").ToList();
+        var pds = pdRep.DataSet
+            .Where(c => c.Modality == "OT" && c.Status == "N")
+            .ToList();
+
+        logger.Info($"開始用AI處理Modality=OT，共 {pds.Count} 筆資料");
         var stopFlag = false;
         foreach (var item in pds)
         {
@@ -72,7 +76,7 @@ public class GetGeminiAIJob : IJob
                                 var examPart = aiResponse.Contains("Total") ? "腰椎" : "左髖關節";
                                 //轉換成數值
                                 var tScore = double.Parse(match.Value);
-                                System.Diagnostics.Debug.WriteLine($"提取到的數值為: {tScore}");
+                                logger.Info($"提取到的數值為: {tScore}");
                                 analyze = tScore switch
                                 {
                                     // 進行醫學邏輯判斷
@@ -93,6 +97,8 @@ public class GetGeminiAIJob : IJob
                             logger.Info($"AccessionNumber = {item.AccessionNumber}"); 
                             logger.Info($"影像未含有可解析之 T-Score 數據。AI 回傳: {aiResponse}");
                         }
+                        // 【核心新增】每發送完一次 API，強制冷卻 13 秒，確保 RPM 控制在 5 左右，絕對不會爆免費額度
+                        await Task.Delay(1000);
                     }
 
                     if (string.IsNullOrEmpty(dpMemo1)) continue;

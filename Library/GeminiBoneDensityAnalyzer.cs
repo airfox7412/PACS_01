@@ -26,14 +26,14 @@ namespace Api.Library
         {
             if (!File.Exists(imagePath)) return "檔案不存在";
 
-            byte[] imageBytes = await File.ReadAllBytesAsync(imagePath);
-            string base64Image = Convert.ToBase64String(imageBytes);
+            var imageBytes = await File.ReadAllBytesAsync(imagePath);
+            var base64Image = Convert.ToBase64String(imageBytes);
 
             // 1. 參考 GeminiAI.cs 的完整 System Prompt
-            string systemPrompt = @"
+            var systemPrompt = @"
                 你是一個專業的醫學數據提取助手。
                 請分析這張骨質密度(BMD)報告，並嚴格遵守以下規則：
-                1. 如果報告中有 'Neck' (股骨頸) 的數據，僅回傳：'Neck T-Score: [數值]'。
+                1. 如果報告中有'Neck'(股骨頸)的數據，若文字不是粗體字，則抓取Total的數值，僅回傳：'Neck T-Score: [數值]'。
                 2. 如果報告中有 'Total' (總體) 的數據，僅回傳：'Total T-Score: [數值]'。
                 3. 若兩者都有，優先回傳 Neck。
                 4. 禁止包含任何解釋、問候或其他文字，只需要輸出要求的字串。
@@ -69,7 +69,8 @@ namespace Api.Library
 
                 // 3. 解析 JSON，提取 AI 的純文字內容
                 var jsonResponse = JsonConvert.DeserializeObject<GeminiResponseModel>(result);
-                logger.Debug($"解析JSON => {jsonResponse}");
+                //logger.Debug($"解析JSON => {result}");
+
                 if (jsonResponse?.Candidates != null && jsonResponse.Candidates.Length > 0)
                 {
                     string aiResponse = jsonResponse.Candidates[0].Content.Parts[0].Text;
