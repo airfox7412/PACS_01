@@ -98,13 +98,14 @@ public class GetGeminiAIJob : IJob
                             logger.Info($"影像未含有可解析之 T-Score 數據。AI 回傳: {aiResponse}");
                         }
                         // 【核心新增】每發送完一次 API，強制冷卻 13 秒，確保 RPM 控制在 5 左右，絕對不會爆免費額度
-                        await Task.Delay(1000);
+                        await Task.Delay(5000);
                     }
 
                     if (string.IsNullOrEmpty(dpMemo1)) continue;
                         
                     ed.Memo1 = dpMemo1; //解析結果
                     ed.Recommand = SystemConfig.OT_Recommand; //填入參考建議
+                    ed.ExamDateTime = DateTime.Now;
                     await edRep.UpdateAsync(ed);
                     item.Status = "Y";
                     await pdRep.UpdateAsync(item);
