@@ -65,7 +65,8 @@ public class GetGeminiAIJob : IJob
                             stopFlag = true;
                             break;
                         }
-                        
+
+                        logger.Info($"提取到的數值為: {aiResponse}");
                         // 使用正規表示式尋找 負號(可選) + 數字 + 小數點 + 數字
                         var match = Regex.Match(aiResponse, @"-?\d+(\.\d+)?");
                         if (match.Success)
@@ -73,15 +74,14 @@ public class GetGeminiAIJob : IJob
                             try
                             {
                                 // 判斷部位
-                                var examPart = aiResponse.Contains("Total") ? "腰椎" : "左髖關節";
+                                var examPart = aiResponse.Contains("Neck T-Score:") ? "左髖關節" : "腰椎";
                                 //轉換成數值
                                 var tScore = double.Parse(match.Value);
-                                logger.Info($"提取到的數值為: {tScore}");
                                 analyze = tScore switch
                                 {
                                     // 進行醫學邏輯判斷
-                                    <= -2.5 => "骨質疏鬆(Osteoporosis)",
-                                    <= -1.0 => "骨質缺乏(Osteopenia)",
+                                    <= -2.5 => "骨質疏鬆",
+                                    <= -1.0 => "骨質減少",
                                     _ => "骨質密度正常"
                                 };
                                 dpMemo1 += $"{examPart}，T值為 {tScore} ，{analyze}\r\n";
