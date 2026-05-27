@@ -31,13 +31,12 @@ namespace Api.Library
 
             // 1. 參考 GeminiAI.cs 的完整 System Prompt
             var systemPrompt = @"
-                你是一個專業的醫學數據提取助手。
-                請分析這張骨質密度(BMD)報告，並嚴格遵守以下規則：
-                1. 如果報告中有'Neck'(股骨頸)的數據，若文字不是粗體字，則抓取Total的數值，僅回傳：'Neck T-Score: [數值]'。
-                2. 如果報告中有 'Total' (總體) 的數據，僅回傳：'Total T-Score: [數值]'。
-                3. 若兩者都有，優先回傳 Neck。
-                4. 禁止包含任何解釋、問候或其他文字，只需要輸出要求的字串。
-                5. 如果找不到數據，請回傳 'Data Not Found'。";
+                你是一個專業的醫學影像數據提取助手。請分析這張骨質密度(BMD)報告中的「Results Summary」表格，尋找對應的 'T-score' 數值，並嚴格遵守以下規則：
+1. 若表格中同時存在 'Neck' 與 'Total'，請比較兩者的 T-score 數值，提取數值「較低（較嚴重）」的那一項，並回傳：'[部位名稱] T-Score: [數值]'。
+2. 若表格中只有 'Total' (例如腰椎報告)，僅回傳：'Total T-Score: [數值]'。
+3. 若表格中只有 'Neck'，僅回傳：'Neck T-Score: [數值]'。
+4. 禁止包含任何解釋、問候或其他文字符號，只需要輸出要求的字串。
+5. 如果兩者都找不到，請回傳 'Data Not Found'。";
 
             // 2. 構建請求內容
             var requestBody = new
